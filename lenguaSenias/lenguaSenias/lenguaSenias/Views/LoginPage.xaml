@@ -7,8 +7,36 @@
              x:Class="lenguaSenias.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.RowSpan="8" Aspect="Fill" Source="drawable/fondo_xamarin_01.jpg"/>
+            <Label Grid.RowSpan="8" BackgroundColor="Black" Opacity="0.5" />
+            <Image Grid.Row="0" Source="drawable/xamarin_icono.png" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Grid.Row="5" Grid.RowSpan="3" BackgroundColor="DeepSkyBlue" Margin="0,-40,0,0"/>
+            <Label Grid.Row="1" Margin="15,0,15,0" Text="Iniciar sesión" TextColor="White" FontAttributes="Bold" FontSize="Subtitle"/>
+            <Frame Grid.Row="2" Margin="15,0,15,0" BackgroundColor="White" Opacity="0.5" CornerRadius="5" BorderColor="DeepSkyBlue"/>
+            <Entry Grid.Row="2" Margin="15,0,15,0" Placeholder="Usuario" TextColor="White" PlaceholderColor="LightGray"/>
+            <Frame Grid.Row="3" Margin="15,0,15,0" BackgroundColor="White" Opacity="0.5" CornerRadius="5" BorderColor="DeepSkyBlue"/>
+            <Entry Grid.Row="3" Margin="15,0,15,0" Placeholder="Contraseña" IsPassword="True" TextColor="White" PlaceholderColor="LightGray"/>
+            <Button Grid.Row="4" Margin="15,0,15,0" Text="Iniciar sesión" TextColor="DeepSkyBlue" BackgroundColor="White" CornerRadius="5" Command="{Binding LoginCommand}"/>
+            <Label Grid.Row="5" Margin="0,20,0,0" Text="¿No tienes una cuenta? Registrate" TextColor="White" HorizontalOptions="Center"/>
+            <Label  Grid.Row="6" Text="O puedes iniciar sesión con:" TextColor="White" HorizontalOptions="Center"/>
+            <StackLayout  Grid.Row="7" Margin="20" Orientation="Horizontal" HorizontalOptions="Center">
+                <Image Source="drawable/google_icono.png" HeightRequest="50" WidthRequest="50"/>
+                <Image Source="drawable/facebook_icono.png" HeightRequest="50" WidthRequest="50"/>
+            </StackLayout>
+        </Grid>
+        <!--<StackLayout Padding="10,0,10,0" VerticalOptions="Center">
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>
