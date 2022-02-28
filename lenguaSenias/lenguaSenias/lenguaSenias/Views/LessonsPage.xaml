@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="lenguaSenias.Views.LessonsPage"
+             xmlns:vm="clr-namespace:lenguaSenias.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:LessonsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Grid.RowSpan="3" Source="drawable/basico_abecedario_01.jpg" Aspect="AspectFill"/>
+            <Label IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="0" Grid.RowSpan="3" BackgroundColor="Black" Opacity="0.5"/>
+
+            <Label Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Start" TextColor="White" Text="◀" Margin="25,20"/>
+            <Label Grid.Row="0" VerticalOptions="Start" HorizontalOptions="End" TextColor="White" Text="▶" Margin="25,20"/>
+            <ScrollView IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="0" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Center" Margin="50,10,50,10">
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Margin="10" Text="Vocales" TextColor="LightGray" FontSize="Small"/>
+                        <Label Margin="10" Text="Abecedario" TextColor="LightGray" FontSize="Small"/>
+                        <Label Margin="10" Text="Números" TextColor="LightGray" FontSize="Small"/>
+                        <Label Margin="10" Text="Días" TextColor="LightGray" FontSize="Small"/>
+                        <Label Margin="10" Text="Meses" TextColor="LightGray" FontSize="Small"/>
+                    </StackLayout>
+                </ScrollView> 
+
+            <BoxView Grid.Row="1" Grid.RowSpan="2" Margin="0,25,0,0" BackgroundColor="#3498db" CornerRadius="25,25,0,0"/>
+            <Button Grid.Row="1" HorizontalOptions="Center" Text="{Binding TextoBoton, Mode=TwoWay}" FontSize="Micro" TextColor="#3498db" Background="white" 
+                HeightRequest="60" WidthRequest="60" CornerRadius="40" BorderColor="#3498db" BorderWidth="2" Command="{Binding VerMasCommand}"/>
+            <CarouselView IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="2" ItemsSource="{Binding CarruselAbecedario}" Margin="10,0,10,10" PeekAreaInsets="0,0,220,0" HeightRequest="150">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="Transparent" 
+                                        HasShadow="False" 
+                                        Padding="5" WidthRequest="50">
+                            <Frame BackgroundColor="Transparent" 
+                                            HasShadow="False"
+                                            CornerRadius="15" 
+                                            Padding="0" Margin="0">
+
+                                <Grid BackgroundColor="White">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="AUTO"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Image Source="{Binding Imagen}" 
+                                                    Aspect="AspectFill" 
+                                                    Grid.Row="0" />
+
+                                    <Label Text="{Binding Nombre}" 
+                                        Grid.Row="1" 
+                                        HorizontalOptions="Center"
+                                        FontAttributes="Bold" FontSize="Title"
+                                        Margin="10"/>
+                                    <Button  Grid.RowSpan="2" BackgroundColor="Transparent"></Button>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
