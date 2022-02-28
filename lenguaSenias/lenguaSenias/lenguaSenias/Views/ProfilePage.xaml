@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
              x:Class="lenguaSenias.Views.ProfilePage"
-             Shell.NavBarIsVisible="False">
+             xmlns:vm="clr-namespace:lenguaSenias.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:ProfileViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -19,20 +22,26 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <Image Grid.RowSpan="8" Aspect="Fill" Source="drawable/mono_perfil_01.jpg"/>
-            <Label Grid.RowSpan="8" BackgroundColor="Black" Opacity="0.5" />
-            <Frame Grid.Row="2" Grid.RowSpan="8" BackgroundColor="#3498db" Margin="0,-30,0,-25" CornerRadius="25"/>
-            <StackLayout  Grid.Row="1" Margin="25,0,25,0" Orientation="Horizontal" HorizontalOptions="End">
-                <Image Source="drawable/telefono_icono.png" HeightRequest="50" WidthRequest="50"/>
-                <Image Source="drawable/correo_icono.png" HeightRequest="50" WidthRequest="50"/>
-            </StackLayout>
-            <Label Grid.Row="2" Margin="25,0,25,0" Text="Mono Bien Monito" TextColor="White" FontAttributes="Bold" FontSize="Title"/>
-            <Label Grid.Row="3" Margin="25,0,25,0" Text="Soy un mono de Canada que me gusta mucho viajar por todo el mundo conociendo nuevos lugares y personas." TextColor="White" FontSize="Caption"/>
-            <Label Grid.Row="4" Margin="25,0,25,0" Text="De: Canada" TextColor="White" FontSize="Small"/>
-            <ProgressBar Grid.Row="7" Margin="25,0,25,0" Progress="0.3" ProgressColor="White"/>
-            <Label Grid.Row="8" Margin="25,0,25,0" Text="Nivel: 5" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Small"/>
-            <Button Grid.Row="9" Margin="25,10,25,10" Text="Seguir" TextColor="#3498db" BackgroundColor="White" CornerRadius="5"/>
+            <Image Grid.Row="0" Grid.RowSpan="13" Source="drawable/mono_perfil_01.jpg" Aspect="AspectFill"></Image>
+            <BoxView Grid.Row="1" Grid.RowSpan="12" Margin="0,25,0,0" BackgroundColor="#3498db" CornerRadius="25,25,0,0"/>
+            <Button Grid.Row="1" HorizontalOptions="Center" Text="{Binding TextoBoton, Mode=TwoWay}" FontSize="Micro" TextColor="#3498db" Background="white" 
+                HeightRequest="60" WidthRequest="60" CornerRadius="40" BorderColor="#3498db" BorderWidth="2" Command="{Binding VerMasCommand}"/>
+            <Label Grid.Row="2" Margin="25,0,25,0" Text="Mono Bien Monito" TextColor="White" FontAttributes="Bold" FontSize="Title" MaxLines="1" LineBreakMode="TailTruncation"/>
+            <Label Grid.Row="3" Margin="25,0,25,0" Text="Ciudad actual: Canadá" TextColor="White" FontSize="Small" MaxLines="1" LineBreakMode="TailTruncation"/>
+            <Label IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="4" Margin="25,0,25,0" Text="Descripción: Soy un mono de Canada que le gusta mucho viajar y conocer nuevos lugares y personas, lo más interesante de viajar 
+                es aprender nuevos idiomas y lenguas de todo el mundo compartiendo sus costumbres y diversidad cultural." TextColor="White" FontSize="Small"/>
+            <Label IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="5" Margin="25,0,25,0" Text="Sexo: Hombre" TextColor="White" FontSize="Small"/>
+            <Label IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="6" Margin="25,0,25,0" Text="Fecha de nacimiento: 01-01-1995" TextColor="White" FontSize="Small"/>
+            <Label IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="7" Margin="25,0,25,0" Text="Información de contacto" TextColor="White" FontAttributes="Bold" FontSize="Title"/>
+            <Label IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="8" Margin="25,0,25,0" Text="Teléfono: 228 110 33 13" TextColor="White" FontSize="Small"/>
+            <Label IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="9" Margin="25,0,25,0" Text="Email: quemonito95@gmail.com" TextColor="White" FontSize="Small"/>
+            <Label IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="10" Margin="25,0,25,0" Text="Progreso" TextColor="White" FontAttributes="Bold" FontSize="Title"/>
+            <ProgressBar IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="11" Margin="25,0,25,0" Progress="0.3" ProgressColor="White"/>
+            <Label IsVisible="{Binding VisibleVerMas, Mode=TwoWay}" Grid.Row="12" Margin="25,0,25,10" Text="Nivel: 5" TextColor="White" FontSize="Small" HorizontalOptions="Center"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

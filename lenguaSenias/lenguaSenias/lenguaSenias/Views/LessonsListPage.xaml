@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="lenguaSenias.Views.LessonsListPage"
+             xmlns:vm="clr-namespace:lenguaSenias.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:LessonsListViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding ListaNiveles, Mode=TwoWay}" HasUnevenRows="True" SeparatorVisibility="None" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="Transparent" Background="transparent" Padding="0,10">
+                                <Frame BackgroundColor="Transparent"
+                                            CornerRadius="15" Padding="0">
+                                    <Grid BackgroundColor="White" Padding="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" BackgroundColor="#3498db"/>
+                                        <Label Grid.Row="0" Grid.Column="0" Margin="10,10,10,0" Text="{Binding Nombre, Mode=TwoWay}" TextColor="White" FontSize="Title"/>
+                                        <Label Grid.Row="1" Grid.Column="0" Margin="10,0,10,0" Text="{Binding Descripcion, Mode=TwoWay}" TextColor="White" FontSize="Caption"/>
+                                        <Image Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HeightRequest="100"  WidthRequest="100" Aspect="AspectFill" Source="{Binding Imagen, Mode=TwoWay}"/>
+                                    </Grid>
+                                </Frame>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

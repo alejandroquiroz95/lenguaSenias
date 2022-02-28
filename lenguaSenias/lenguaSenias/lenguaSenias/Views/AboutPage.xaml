@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <!--<Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -47,32 +47,5 @@
                         TextColor="White" />
             </StackLayout>
         </ScrollView>
-    </Grid>-->
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <Image Grid.RowSpan="8" Aspect="Fill" Source="drawable/mono_perfil_01.jpg"/>
-        <Label Grid.RowSpan="8" BackgroundColor="Black" Opacity="0.5" />
-        <Frame Grid.Row="2" Grid.RowSpan="8" BackgroundColor="#3498db" Margin="0,-30,0,-25" CornerRadius="25"/>
-        <StackLayout  Grid.Row="1" Margin="25,0,25,0" Orientation="Horizontal" HorizontalOptions="End">
-            <Image Source="drawable/telefono_icono.png" HeightRequest="50" WidthRequest="50"/>
-            <Image Source="drawable/correo_icono.png" HeightRequest="50" WidthRequest="50"/>
-        </StackLayout>
-        <Label Grid.Row="2" Margin="25,0,25,0" Text="Mono Bien Monito" TextColor="White" FontAttributes="Bold" FontSize="Title"/>
-        <Label Grid.Row="3" Margin="25,0,25,0" Text="Soy un mono de Canada que me gusta mucho viajar por todo el mundo conociendo nuevos lugares y personas." TextColor="White" FontSize="Caption"/>
-        <Label Grid.Row="4" Margin="25,0,25,0" Text="De: Canada" TextColor="White" FontSize="Small"/>
-        <ProgressBar Grid.Row="7" Margin="25,0,25,0" Progress="0.3" ProgressColor="White"/>
-        <Label Grid.Row="8" Margin="25,0,25,0" Text="Nivel: 5" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Small"/>
-        <Button Grid.Row="9" Margin="25,10,25,10" Text="Seguir" TextColor="#3498db" BackgroundColor="White" CornerRadius="5"/>
     </Grid>
 </ContentPage>

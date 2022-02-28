@@ -13,7 +13,10 @@ namespace lenguaSenias
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
-            Routing.RegisterRoute("//ProfilePage", typeof(ProfilePage));
+            Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+            Routing.RegisterRoute(nameof(TipsPage), typeof(TipsPage));
+            Routing.RegisterRoute(nameof(LessonsListPage), typeof(LessonsListPage));
+            Routing.RegisterRoute("LessonsPage", typeof(LessonsPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
