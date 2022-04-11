@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace lenguaSenias.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TipsPage : ContentPage
+    public partial class CorouselContentPage : ContentPage
     {
-        public TipsPage()
+        public CorouselContentPage()
         {
             InitializeComponent();
         }

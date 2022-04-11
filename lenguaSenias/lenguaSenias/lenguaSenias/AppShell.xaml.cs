@@ -13,13 +13,28 @@ namespace lenguaSenias
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
-            Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
-            Routing.RegisterRoute(nameof(TipsPage), typeof(TipsPage));
-            Routing.RegisterRoute(nameof(LessonsListPage), typeof(LessonsListPage));
             Routing.RegisterRoute("LessonsPage", typeof(LessonsPage));
+            Routing.RegisterRoute("CorouselContentPage", typeof(CorouselContentPage));
+            Routing.RegisterRoute("LessonsListPage", typeof(LessonsListPage));
+            Routing.RegisterRoute("ProfilePage", typeof(ProfilePage));
         }
 
-        private async void OnMenuItemClicked(object sender, EventArgs e)
+        private async void OnMenuItemTips(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("CorouselContentPage");
+        } 
+        
+        private async void OnMenuItemLessons(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("LessonsListPage");
+        }
+        
+        private async void OnMenuItemProfile(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("ProfilePage");
+        }
+
+        private async void OnMenuItemLogout(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//LoginPage");
         }
